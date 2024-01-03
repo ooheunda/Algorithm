@@ -1,9 +1,4 @@
 function solution(angle) {
-    var answer = 0;
-    
-    angle === 90 ? answer = 2 : 
-    angle === 180 ? answer = 4 : 
-    angle < 90 ? answer = 1 : answer = 3;
-    
+    var answer = angle < 90 ? 1 : angle === 90 ? 2 : angle < 180 ? 3 : 4
     return answer;
 }
