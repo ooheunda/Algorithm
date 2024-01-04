@@ -1,10 +1,10 @@
 function solution(n) {
-    var answer = [];
-    
-    let strNum = "" + n;
-    for (let i = strNum.length - 1; i >= 0; i--) {
-        answer.push(strNum[i] / 1);
-    }
-    
-    return answer;
+	var answer = [];
+
+	while(n > 0) {
+		answer.push(n % 10);
+		n = Math.floor(n / 10);
+	}
+
+	return answer;
 }
