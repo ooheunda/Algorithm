@@ -1,15 +1,15 @@
 function solution(X, Y) {
-    let answer = [];
-    let x = (X + '').split('').sort();
-    let y = (Y + '').split('').sort();
+    let answer = '';
+    let x = (X + '').split('').sort((a, b) => b - a);
+    let y = (Y + '').split('').sort((a, b) => b - a);
     
-    for (let i = 0; i < 10; i++) {
+    for (let i = 9; i >= 0; i--) {
         let xCnt = x.lastIndexOf(`${i}`) + 1;
         let yCnt = y.lastIndexOf(`${i}`) + 1;
         
         if (xCnt !== -1 && yCnt !== -1) {
             for (let j = 0; j < Math.min(xCnt, yCnt); j++) {
-                answer.push(`${i}`);
+                answer += i;
             }
         }
         
@@ -18,8 +18,6 @@ function solution(X, Y) {
         
         if (!x[0] || !y[0]) break;
     }
-    
-    answer = answer.sort().reverse().join('');
     
     return answer === '' ? "-1" : +answer ? answer : "0";
 }
