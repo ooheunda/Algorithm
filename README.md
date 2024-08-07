@@ -121,4 +121,60 @@ function double(arr) {
   - 25를 2로 5번 나누면 0.78...이 되므로, log(25) ≈ 4.64
   - 따라서 O(log n)은 n이 커져도 큰 차이가 없다. (로그함수 그래프)
 
-수학적인 걸 떠나서 `O(n^2) > O(nlog n) > O(n) > O(log n) > O(1)` 이런 순서로 시간이 더 걸리니, 비교적 비효율적이라고 생각하면 된다.
+### 결론
+
+<img width="443" alt="Screenshot 2024-08-03 at 16 34 36" src="https://github.com/user-attachments/assets/6c93cfc0-f396-451d-a699-d5386d77e8cc">
+
+수학적인 걸 떠나서 `O(n^2) > O(nlog n) > O(n) > O(log n) > O(1)` 이런 순서로 비교적 비효율적이라고 기억해두면 된다!
+
+
+
+## Analyzing Performance of Arrays and Objects
+
+### 1. 객체
+
+순서가 없는 key-value pairs.
+
+#### 언제 사용할까?
+
+- 정렬, 순서가 필요하지 않을 때
+- 빠른 접근, 삽입, 삭제가 필요할 때
+
+#### Big O로 바라보기
+
+- 삽입: `O(1)`
+- 삭제: `O(1)`
+- 검색: `O(n)`
+- 접근: `O(1)`
+- methods
+   - hasOwnProperty: `O(1)`
+   - Object.keys: `O(n)`
+   - Object.values: `O(n)`
+   - Object.entries: `O(n)`
+
+### 2. 배열
+
+#### 언제 사용할까?
+
+- 정렬, 순서가 필요할 때
+
+#### Big O로 바라보기
+
+- 삽입과 삭제는 재정렬이 필요하기 때문에 target 위치에 따라 다름
+- 검색: `O(n)`
+- 접근: `O(1)`
+- methods
+   - push: `O(1)`
+   - pop: `O(1)`
+   - shift: `O(n)`
+   - unshift: `O(n)`
+   - concat: `O(n)`
+   - slice: `O(n)`
+   - splice: `O(n)`
+   - sort: `O(n * log n)`
+   - forEach/map/filter/reduce/etc.: `O(n)`
+ 
+### 결론
+
+순서가 필요하면 배열, 필요하지 않다면 객체를 이용하자!  
+배열 앞쪽 삽입/삭제의 비효율성을 보완해줄 자료 구조들을 배울 것이다!
